@@ -1,6 +1,7 @@
 require 'sinatra'  
 
 enable :sessions
+
 get "/set" do
   session[:message] = params[:message]
   "session saved"
@@ -16,16 +17,22 @@ end
 
 
 get '/hw' do
-  File.read('hw.html')
-end
-
-get '/getdoc' do
-  File.read('getdoc.html')
+   'hw.html'
   
 end
 
+get '/getdoc' do
+  '<!DOCTYPE html>
+  <html>
+  <head>
+  <style>body {background-color:red;}</style>
+  </head>
+  <body></body>
+  </html>'
+end
+
 get '/post_it' do
-  File.read('post_it.html')
+  'post_it.html'
 end
 
 post "/submitted" do
@@ -33,13 +40,13 @@ post "/submitted" do
 end
 
 get '/logon' do
-    File.read('logon.html')
+    'logon.html'
 end
 
 
 post "/logon" do
     
-    if params[:name] == "bob"
+    if params[:username] == "bob" && params[:password] == "pass"
       "Success"
     else
       "failure"
@@ -49,8 +56,9 @@ end
 
 post "/hello" do 
   session[:name] = params[:name]
+    "Saved the Name"
 end
 
 get "/greet" do
-   "welcome #{params[:name]}"
+   "welcome #{session[:name]}"
 end
