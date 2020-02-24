@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>how many candles</title>
+</head>
+
+<body>
+    <h1>How many candles do you need?</h1>
+    </br>
+<form action="/candles" method="POST">
+    <input type="text" name="number_of_candles" placeholder="number of candles?"></input>
+    <input type="submit" value="submit"></input>
+    <% if @number_candles != nil %>
+    <%= "thank you for your order, you order #{params[:name]} candles." %>
+    <% end %>
+</form>
+
+
+
+</body>
+
+</html>

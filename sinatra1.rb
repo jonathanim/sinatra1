@@ -1,4 +1,6 @@
-require 'sinatra'  
+require 'sinatra'
+require 'sinatra/reloader'
+
 
 enable :sessions
 
@@ -12,9 +14,13 @@ end
 
 
 get '/' do
-  "Hello, World!"
+@number_candles = params[:name]
+ erb :howmany
 end
 
+post '/candles' do
+  erb :candles
+end
 
 get '/hw' do
    'hw.html'
@@ -62,3 +68,4 @@ end
 get "/greet" do
    "welcome #{session[:name]}"
 end
+
