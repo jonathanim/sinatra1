@@ -12,14 +12,22 @@ get "/get" do
    session[:message]
 end
 
-
 get '/' do
-@number_candles = params[:name]
- erb :howmany
+  erb :howmany 
 end
 
 post '/candles' do
-  erb :candles
+  @candles = params[:n_candles].to_i
+  erb :candles 
+  if @candles == nil || @candles == 0
+    "enter the amount of candles you want to order!"
+  elsif @candles == 1
+    "thank you for ordering #{@candles} candle"
+  else 
+    "thank you for ordering #{@candles} candles."
+      
+  end
+ 
 end
 
 get '/hw' do
