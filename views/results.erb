@@ -1,7 +1,12 @@
-the Results are: 
+the Results of the data base are: 
 
+<br>
 
-<%= @results %>
-
+<% @result.each do |row| %>
+    <% row.each do |info| + '|' %>
+        <%= info %>
+    <% end %>
+    <br>
+<% end %>
 
 
